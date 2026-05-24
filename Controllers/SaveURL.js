@@ -7,7 +7,7 @@ export const SaveURL = async (req, res) => {
         const shortId = generateShortId(7);
         const newURL = new URLs({ longUrl, shortId });
         await newURL.save();
-        const shortURL = `${process.env.BACKEND_URL || "https://tbackend-production-1ca1.up.railway.app"}/${shortId}`;
+        const shortURL = `https://tinyurl-backend-production.up.railway.app/${shortId}`;
         res.status(200).json({ ok: true, shortURL });
     } catch (err) {
         res.status(500).json({ ok: false, error: err.message });
